@@ -69,14 +69,19 @@
 2. **内容准备**：String Mode下输入待传输文本，File Mode下选择待传输文件；
 3. **密钥生成**：点击【Generate Keys】生成对称密钥和RSA公私钥；
 4. **密钥保存**：分别点击【Save PubKey】【Save PrivKey】保存RSA公私钥（A、B双方均需执行步骤3-4）；
-5. **A端发送准备**：
+5. **A端**：
+   - 按下【Generate Keys】
+   - 【Sym Key：】上面的方框内输入待传输文本，例如hello（File Mode下则按下【Browse...】按钮选择需要加密的txt文件）
    - 点击【Load Peer PubKey】导入B的公钥；
    - 点击【Load Own PrivKey】导入A的私钥；
    - 点击【Send】按钮发送消息，生成加密文件等传输内容；
-6. **B端接收准备**：
+   - 对话框中“Encrypted Payload (E(M||E(H(M), RKA), K)):”后面的内容为加密后的密文
+7. **B端**：
+   - 【Sym Key：】上面的方框内输入对话框中“Encrypted Payload (E(M||E(H(M), RKA), K)):”后面的内容（File Mode下则不需要操作）
    - 点击【Load Peer PubKey】导入A的公钥；
    - 点击【Load Own PrivKey】导入B的私钥；
    - 点击【Receive】按钮接收并解密消息，获取原始文件/文本。
+   - 【Sym Key：】上面的方框内显示解密后的文本（File Mode下，当前项目文件夹中.dec的文件即为解密后的文件，可删除后缀后查看txt文件的内容）
 
 ## 注意事项
 - 所有文件选择操作仅支持英文路径，中文路径会导致加载失败；
